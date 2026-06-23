@@ -12,6 +12,7 @@ This is a backend project built using **Spring Boot** as part of my learning jou
 * MongoDB (MongoDB Atlas)
 * Lombok
 * Postman (for API testing)
+* Deployment
 
 ---
 
