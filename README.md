@@ -12,6 +12,9 @@ This is a backend project built using **Spring Boot** as part of my learning jou
 * MongoDB (MongoDB Atlas)
 * Lombok
 * Postman (for API testing)
+* Logging
+* SonarQube, SonarLint and SonarCloud
+* MongoTemplate
 * Deployment
 
 ---
@@ -62,7 +65,14 @@ All APIs are tested using **Postman**.
 * Designing and linking collections in MongoDB
 * Handling transactions in Spring Boot
 * Implementing Spring Security
+* Role Based Authentication
 * Working with REST APIs
+* JUnit 5 Testing
+* Springboot profiles
+* External API's Integration
+* Master SonarQube, SonarLint and SonarCloud
+* @Value and @PostConstruct Annotations
+* Mastering MongoTemplate
 
 ---
 
@@ -71,6 +81,7 @@ All APIs are tested using **Postman**.
 * Add frontend (React / Angular)
 * JWT-based authentication
 * Role-based access control
+* Logging (trace,  debug, info, error, warn)
 * Pagination & filtering
 * Dockerize the application
 
