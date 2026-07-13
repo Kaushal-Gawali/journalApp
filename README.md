@@ -73,6 +73,7 @@ All APIs are tested using **Postman**.
 * Master SonarQube, SonarLint and SonarCloud
 * @Value and @PostConstruct Annotations
 * Mastering MongoTemplate
+* Sending Mail using Spring Boot(JavaMailSender)
 
 ---
 
