@@ -15,6 +15,9 @@ This is a backend project built using **Spring Boot** as part of my learning jou
 * Logging
 * SonarQube, SonarLint and SonarCloud
 * MongoTemplate
+* Crons in SpringBoot
+* Integration Redis Cloud with our Spring Boot Application
+* Kafka
 * Deployment
 
 ---
@@ -74,6 +77,10 @@ All APIs are tested using **Postman**.
 * @Value and @PostConstruct Annotations
 * Mastering MongoTemplate
 * Sending Mail using Spring Boot(JavaMailSender)
+* Crons in Spring Boot
+* Adding sentiment to Journal App and sending sentiment on mail
+* Integrate Redis Cloud with our Spring Boot Application on Redis clout --> redis.io
+* Kafka
 
 ---
 
