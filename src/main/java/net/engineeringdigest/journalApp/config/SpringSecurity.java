@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.config;
 
+import net.engineeringdigest.journalApp.filter.JwtFilter;
 import net.engineeringdigest.journalApp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,34 +14,53 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @Profile("dev")
 public class SpringSecurity {
 
-    private final UserDetailsServiceImpl userDetailsService;
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    private JwtFilter jwtFilter;
 
     // ✅ Constructor Injection (BEST PRACTICE)
     public SpringSecurity(UserDetailsServiceImpl userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
-    // ✅ Security Rules
+    // ✅ Security Configuration (JWT Based)
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .csrf(csrf -> csrf.disable())
+
+                // ✅ Stateless (No session)
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+
+                // ✅ Authorization rules
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/public/**").permitAll()
                         .requestMatchers("/journal/**", "/user/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
+
+                // ❌ REMOVE THIS (Basic Auth removed)
+                // .httpBasic(Customizer.withDefaults())
+
+                // ✅ Add JWT Filter
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+
                 .build();
     }
 
