@@ -18,7 +18,7 @@ This is a backend project built using **Spring Boot** as part of my learning jou
 * Crons in SpringBoot
 * Integration Redis Cloud with our Spring Boot Application
 * Kafka
-* Deployment
+* Deployment on VPS(Hostinger, Ngnix, SLL certificate, Firewall
 
 ---
 
@@ -46,12 +46,23 @@ This is a backend project built using **Spring Boot** as part of my learning jou
 
 * `username`
 * `password`
+* email
+* Sentiment Analysis
+* roles
+* journal entries
 
 ### 🔹 Journal Entries Collection
 
 * `title`
 * `content`
 * `role`
+* Date
+* Sentiment
+
+* ### 🔹 config_journal_app Collection
+
+* `key`
+* `value`
 
 ---
 
@@ -81,6 +92,7 @@ All APIs are tested using **Postman**.
 * Adding sentiment to Journal App and sending sentiment on mail
 * Integrate Redis Cloud with our Spring Boot Application on Redis clout --> redis.io
 * Kafka
+* Learn about VPS(virtual private server) in this learn about Hostinger, Ngnix, Firewall, SSL cerificate
 
 ---
 
